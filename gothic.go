@@ -1,10 +1,4 @@
-/*
-Package gothic wraps common behaviour when using Goth. This makes it quick, and easy, to get up
-and running with Goth. Of course, if you want complete control over how things flow, in regards
-to the authentication process, feel free and use Goth directly.
-
-See https://github.com/markbates/goth/blob/master/examples/main.go to see this in action.
-*/
+/* Based on https://github.com/markbates/goth/blob/edc3e96387cb58c3f3d58e70db2f115815ccdf1e/gothic/gothic.go */
 package echogothic
 
 import (
@@ -24,8 +18,6 @@ as either "provider" or ":provider".
 
 BeginAuthHandler will redirect the user to the appropriate authentication end-point
 for the requested provider.
-
-See https://github.com/markbates/goth/examples/main.go to see this in action.
 */
 func BeginAuthHandler(ectx echo.Context) error {
 	url, err := GetAuthURL(ectx)
@@ -96,8 +88,6 @@ process and fetches all of the basic information about the user from the provide
 
 It expects to be able to get the name of the provider from the query parameters
 as either "provider" or ":provider".
-
-See https://github.com/markbates/goth/examples/main.go to see this in action.
 */
 var CompleteUserAuth = func(ectx echo.Context) (goth.User, error) {
 	defer func() {
